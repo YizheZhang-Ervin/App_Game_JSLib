@@ -74,12 +74,6 @@ footer{
 }
 
 /* 自定义样式 */
-.right{
-   display: flex;
-   align-items: center;
-   justify-content: flex-end; 
-}
-
 .center{
     display: flex;
     align-items: center;
@@ -107,13 +101,8 @@ footer{
 }
 
 .space-v{
-    padding-top: 32px;
+    padding-top: 45px;
     padding-bottom: 32px;
-}
-
-.space-h{
-    padding-left:64px;
-    padding-right:64px;
 }
 
 .h100{
@@ -126,4 +115,21 @@ footer{
 
 .font-small{
     font-size:0.3em;
+}
+
+@media(min-width:500px){
+    #app{
+      display: block;
+    }
+    #backup{
+      display: none;
+    }
+  }
+@media(max-width:500px){
+    #app{
+      display: none;
+    }
+    #backup{
+      display: flex;
+    }
 }

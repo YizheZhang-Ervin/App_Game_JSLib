@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EGGroup - IM</title>
+        <title>EGGroup-IM</title>
         <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-        <link rel="stylesheet" type="text/css" href="./index.css">
+        <link rel="stylesheet" type="text/css" href="./static/css/index.css">
         <link rel="icon" href="./static/eggroup.ico">
     </head>
 
@@ -15,201 +15,59 @@
             <h1>请打开自动旋转,并使用横屏访问页面</h1>
         </div>
         <div id="app">
-            <div class="center">
-                <div class="w90">
-                    <!-- 头部 -->
-                    <header class="between">
-                        <div>
-                            <el-image style="width: 70px; height: 80px" src="./static/im.png" fit="contain">
-                            </el-image>
-                        </div>
-                        <el-menu default-active="1" mode="horizontal">
-                            <el-menu-item index="1" @click="changePage(1)">首页</el-menu-item>
-                            <el-submenu index="2">
-                                <template slot="title">专业领域</template>
-                                <el-menu-item index="2-1" @click="changePage(2)">微电影</el-menu-item>
-                                <el-menu-item index="2-2" @click="changePage(2)">游戏</el-menu-item>
-                                <el-menu-item index="2-3" @click="changePage(2)">黑科技</el-menu-item>
-                            </el-submenu>
-                            <el-menu-item index="3" @click="changePage(3)">关于我们</el-menu-item>
-                        </el-menu>
-                    </header>
-                    <!-- 主体 -->
-                    <main class="h100">
-                        <!-- 导航 -->
-                        <el-breadcrumb separator="/">
-                            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                            <el-breadcrumb-item>当前页</el-breadcrumb-item>
-                        </el-breadcrumb>
-                        <!-- 首页 -->
-                        <div v-show="showHome">
-                            <el-carousel height="100vh">
-                                <el-carousel-item v-for="item in 4" :key="item">
-                                    <h3 class="center h100" style="background: black;">{{ item }}</h3>
-                                </el-carousel-item>
-                            </el-carousel>
-                        </div>
-                        <!-- 专业领域 -->
-                        <div v-show="showPro">
-                            456
-                        </div>
-                        <!-- 关于我们 -->
-                        <div>
-                            <!-- 列表 -->
-                            <div class="space-v" v-show="showGroup">
-                                <el-card v-for="m in members" shadow="hover">
-                                    <div class="around" @click="changePageDetail(m)">
-                                        <el-image style="height:150px;width:250px;" :src="m.img" fit="cover">
-                                        </el-image>
-                                        <div>{{m.name}}</div>
-                                        <div>{{m.location}}</div>
-                                        <div>{{m.pro}}</div>
-                                    </div>
-                                </el-card>
-                            </div>
-                            <!-- 单人详细 -->
-                            <el-row type="flex" justify="space-around" class="space-v" v-show="showGroupDetail">
-                                <!-- 左边 -->
-                                <el-col :span="6">
-                                    <el-card :body-style="{padding:'0px'}">
-                                        <img width="100%" :src="memberDetail.img">
-                                        <div style="padding: 14px;">
-                                            <el-button type="text" icon="el-icon-message">邮箱: {{memberDetail.mail}}
-                                            </el-button>
-                                            <br />
-                                            <el-button type="text" icon="el-icon-phone-outline">电话:
-                                                {{memberDetail.phone}}</el-button>
-                                            <br />
-                                            <el-button type="text" icon="el-icon-user">联系: <span
-                                                    v-html="memberDetail.contact"></span></el-button>
-                                            <el-divider></el-divider>
-                                            <div class="around">
-                                                <a :href="memberDetail.linkedin">
-                                                    <el-button circle>ln</el-button>
-                                                </a>
-                                                <el-divider direction="vertical"></el-divider>
-                                                <a href="javascript:window.print()">
-                                                    <el-button icon="el-icon-printer" circle></el-button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </el-card>
-                                </el-col>
-                                <!-- 右边 -->
-                                <el-col :span="15">
-                                    <!-- 名字 -->
-                                    <div class="between">
-                                        <h1>{{memberDetail.name}}
-                                            <span class="font-small">{{memberDetail.title}}</span>
-                                        </h1>
-                                        <el-image style="width: 70px; height: 80px" src="./static/im.png" fit="contain">
-                                        </el-image>
-                                    </div>
-                                    <!-- 专业领域 -->
-                                    <div>
-                                        <el-divider content-position="left">专业领域</el-divider>
-                                        <p>{{memberDetail.exp1}}</p>
-                                    </div>
-                                    <!-- 项目经历 -->
-                                    <div>
-                                        <el-divider content-position="left">项目经历</el-divider>
-                                        <div v-html="memberDetail.exp2"></div>
-                                    </div>
-                                    <!-- 教育背景 -->
-                                    <div>
-                                        <el-divider content-position="left">教育背景</el-divider>
-                                        <p>{{memberDetail.exp3}}</p>
-                                    </div>
-                                    <!-- 职业技能 -->
-                                    <div>
-                                        <el-divider content-position="left">职业技能</el-divider>
-                                        <p>{{memberDetail.exp4}}</p>
-                                    </div>
-                                    <!-- 工作语言 -->
-                                    <div>
-                                        <el-divider content-position="left">工作语言</el-divider>
-                                        <p>{{memberDetail.exp5}}</p>
-                                    </div>
-                                    <!-- 按钮 -->
-                                    <div class="text-right">
-                                        <el-button>下载简历</el-button>
-                                    </div>
-                                </el-col>
-                            </el-row>
-                        </div>
-                    </main>
-                </div>
+            <div id="container">
+                <aside>
+                    <!-- left navigation bar -->
+                    <el-menu id="navbar001" default-active="1-1" background-color="rgb(25, 42, 86)" text-color="#fff"
+                        active-text-color="gold" :collapse="menuCollapse">
+                        <el-submenu index="1" collapse="false">
+                            <template slot="title">
+                                <i class="el-icon-s-home"></i>
+                                <span>Home</span>
+                            </template>
+                            <el-menu-item-group>
+                                <template slot="title">Components</template>
+                                <el-menu-item index="1-1" @click="changeShow('home')">Video</el-menu-item>
+                                <el-menu-item index="1-2" @click="changeShow('home')">Comments</el-menu-item>
+                            </el-menu-item-group>
+                        </el-submenu>
+                        <el-menu-item index="2" @click="changeShow('monitor')">
+                            <i class="el-icon-monitor"></i>
+                            <span slot="title">Monitor</span>
+                        </el-menu-item>
+                        <el-menu-item index="3" @click="changeShow('tool')">
+                            <i class="el-icon-mouse"></i>
+                            <span slot="title">Tool</span>
+                        </el-menu-item>
+                        <el-menu-item index="4" @click="changeShow('group')">
+                            <i class="el-icon-user"></i>
+                            <span slot="title">Group</span>
+                        </el-menu-item>
+                        <el-menu-item index="5" @click="changeMenuCollapse">
+                            <i class="el-icon-s-fold"></i>
+                            <span slot="title">Hide</span>
+                        </el-menu-item>
+                    </el-menu>
+                </aside>
+                <main>
+                    <!-- components -->
+                    <eg-home v-show="homeShow"></eg-home>
+                    <eg-monitor v-show="monitorShow"></eg-monitor>
+                    <eg-tool v-show="toolShow"></eg-tool>
+                    <eg-group v-show="groupShow"></eg-group>
+                    <el-backtop></el-backtop>
+                </main>
             </div>
-            <!-- 底部 -->
-            <footer class="space-v">
-                <!-- 底部菜单列表 -->
-                <el-row class="text-center">
-                    <el-col :span="6">
-                        <ul>
-                            <li>专业介绍</li>
-                            <li>经济学基础</li>
-                            <li>计算机基础</li>
-                            <li>管理学基础</li>
-                        </ul>
-                    </el-col>
-                    <el-col :span="6">
-                        <ul>
-                            <li>信息系统</li>
-                            <li>软件开发</li>
-                            <li>产品设计</li>
-                            <li>测试运维</li>
-                        </ul>
-                    </el-col>
-                    <el-col :span="6">
-                        <ul>
-                            <li>信息管理</li>
-                            <li>数据相关</li>
-                            <li>管理科学</li>
-                            <li>情报处理</li>
-                        </ul>
-                    </el-col>
-                    <el-col :span="6">
-                        <ul>
-                            <li>相关方向</li>
-                            <li>战略咨询</li>
-                            <li>市场销售</li>
-                            <li>其他</li>
-                        </ul>
-                    </el-col>
-                </el-row>
-                <!-- 分割线 -->
-                <el-divider></el-divider>
-                <!-- 底部标签 -->
-                <el-row class="text-center">
-                    <el-col :span="9">
-                        <span>©IM 2020 00000000</span>
-                    </el-col>
-                    <el-col :span="2">
-                        <el-avatar icon="el-icon-trophy">
-                        </el-avatar>
-
-                    </el-col>
-                    <el-col :span="2">
-                        <el-avatar icon="el-icon-trophy">
-                        </el-avatar>
-                    </el-col>
-                    <el-col :span="2">
-                        <el-avatar icon="el-icon-trophy">
-                        </el-avatar>
-                    </el-col>
-                    <el-col :span="9">
-                        <span>法律声明</span>
-                        <span>&nbsp;&nbsp;&nbsp;</span>
-                        <span>网站地图</span>
-                    </el-col>
-                </el-row>
-            </footer>
-            <el-backtop></el-backtop>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <script src="https://unpkg.com/element-ui/lib/index.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js"></script>
-        <script src="./index.js" async="async"></script>
+        <script src="./static/js/index.js" async="async"></script>
+        <script src="./static/js/home.js"></script>
+        <script src="./static/js/monitor.js"></script>
+        <script src="./static/js/tool.js"></script>
+        <script src="./static/js/group.js"></script>
+
     </body>
 
 </html>

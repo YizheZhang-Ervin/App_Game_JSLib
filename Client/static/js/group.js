@@ -154,7 +154,7 @@ Vue.component('eg-group', {
                 <h1>{{memberDetail.name}}
                     <span class="font-small">{{memberDetail.title}}</span>
                 </h1>
-                <el-image style="width: 70px; height: 80px" src="./static/im.png" fit="contain">
+                <el-image style="width: 70px; height: 80px" src="./static/img/im.png" fit="contain">
                 </el-image>
             </div>
             <!-- 专业领域 -->

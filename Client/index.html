@@ -31,19 +31,23 @@
                                 <el-menu-item index="1-2" @click="changeShow('home')">Comments</el-menu-item>
                             </el-menu-item-group>
                         </el-submenu>
-                        <el-menu-item index="2" @click="changeShow('monitor')">
+                        <el-menu-item index="2" @click="changeShow('meeting')">
+                            <i class="el-icon-chat-round"></i>
+                            <span slot="title">Meeting</span>
+                        </el-menu-item>
+                        <el-menu-item index="3" @click="changeShow('monitor')">
                             <i class="el-icon-monitor"></i>
                             <span slot="title">Monitor</span>
                         </el-menu-item>
-                        <el-menu-item index="3" @click="changeShow('tool')">
-                            <i class="el-icon-mouse"></i>
-                            <span slot="title">Tool</span>
+                        <el-menu-item index="4" @click="changeShow('geo')">
+                            <i class="el-icon-location-outline"></i>
+                            <span slot="title">GEO</span>
                         </el-menu-item>
-                        <el-menu-item index="4" @click="changeShow('group')">
+                        <el-menu-item index="5" @click="changeShow('group')">
                             <i class="el-icon-user"></i>
                             <span slot="title">Group</span>
                         </el-menu-item>
-                        <el-menu-item index="5" @click="changeMenuCollapse">
+                        <el-menu-item index="6" @click="changeMenuCollapse">
                             <i class="el-icon-s-fold"></i>
                             <span slot="title">Hide</span>
                         </el-menu-item>
@@ -52,8 +56,9 @@
                 <main>
                     <!-- components -->
                     <eg-home v-show="homeShow"></eg-home>
+                    <eg-meeting v-show="meetingShow"></eg-meeting>
                     <eg-monitor v-show="monitorShow"></eg-monitor>
-                    <eg-tool v-show="toolShow"></eg-tool>
+                    <eg-geo v-show="geoShow"></eg-geo>
                     <eg-group v-show="groupShow"></eg-group>
                     <el-backtop></el-backtop>
                 </main>
@@ -61,13 +66,15 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts-map@3.0.1/js/world.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js"></script>
         <script src="./static/js/index.js" async="async"></script>
         <script src="./static/js/home.js"></script>
+        <script src="./static/js/meeting.js"></script>
         <script src="./static/js/monitor.js"></script>
-        <script src="./static/js/tool.js"></script>
+        <script src="./static/js/geo.js"></script>
         <script src="./static/js/group.js"></script>
-
     </body>
 
 </html>

@@ -29,6 +29,9 @@ footer li:first-child{
 h1{
     font-size: 3em;
 }
+h2{
+    font-size: 1.5em;
+}
 footer{
     background-color: #2b2b2b;
     font-size:0.8em;
@@ -48,11 +51,11 @@ main{
 }
 
 #homeComponent{
-    color:#ac9455;
+    color:gold
 }
 
 #groupComponent, #groupComponent span,#groupComponent i,#groupComponent a{
-    color:#ac9455;
+    color:black;
 }
 
 /* 改类样式 */
@@ -96,9 +99,20 @@ main{
     height: 100vh;
 }
 
+.v70{
+    height:70vh;
+}
+
+.border-left{
+    border-left: 2px solid gold;
+}
+
+.padding-all{
+    padding:2%;
+}
 
 /* Media Query */
-@media(min-width:500px){
+@media(min-width:700px){
     #app{
       display: block;
     }
@@ -106,11 +120,23 @@ main{
       display: none;
     }
   }
-@media(max-width:500px){
+@media(max-width:700px){
     #app{
       display: none;
     }
     #backup{
       display: flex;
     }
+}
+
+/* 改elementUI */
+.el-collapse,.el-collapse-item__content,.el-collapse-item__header,.el-collapse-item__wrap{
+    background-color: #2b2b2b;
+    color:gold;
+    border: none;
+}
+
+.el-divider__text{
+    background-color:  #2b2b2b;
+    color:gold;
 }

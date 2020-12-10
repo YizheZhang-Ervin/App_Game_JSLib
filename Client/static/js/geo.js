@@ -1,32 +1,41 @@
 Vue.component('eg-geo', {
     data: function () {
         return {
-            
+            userLocation:""
         }
     },
-    mounted(){
-        this.plot()
+    mounted() {
+        this.plot();
+        this.getLocation();
     },
     methods: {
-        convertData(data) {
-            var res = [];
-            for (var i = 0; i < data.length; i++) {
-                var geoCoord = this.geoCoordMap[data[i].name];
-                if (geoCoord) {
-                    res.push({
-                        name: data[i].name,
-                        value: geoCoord.concat(data[i].value)
-                    });
+        sendNotification(position){
+            let latitude = position.coords.latitude>0?position.coords.latitude+" N":position.coords.latitude+" S";
+            let longitude = position.coords.longitude>0?position.coords.longitude+" E":position.coords.longitude+" W";
+            this.userLocation = `Your Location is \n (${latitude}, ${longitude})`;
+            var n = new Notification('地理位置确认',{
+                body: this.userLocation,
+                tag:"eggroup",
+                requireInteraction: false,
+                data:{
+                    loc:this.userLocation
                 }
+            })
+            n.onclick = function(){
+                n.close();
             }
-            return res;
+        },
+        getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(this.sendNotification);
+            }
         },
         plot: function () {
             let myChart = echarts.init(document.getElementById('charts'));
             let option = {
                 series: [{
                     type: 'map',
-                    map: 'world',
+                    map: 'china',
                     zoom: 1,
                     roam: true,
                     scaleLimit: {
@@ -41,7 +50,8 @@ Vue.component('eg-geo', {
     },
     template: `
 <div>
-<div id="charts" style="height:100vh;width:90vw"></div>
+    <p style="position:absolute">{{userLocation}}</p>
+    <div id="charts" style="height:100vh;width:90vw"></div>
 </div>
     `
 })

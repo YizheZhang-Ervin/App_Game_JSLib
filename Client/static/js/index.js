@@ -3,9 +3,9 @@ new Vue({
     data:function(){
         return{
             menuCollapse:true,
-            homeShow:true,
+            videoShow:false,
             monitorShow:false,
-            meetingShow:false,
+            recipeShow:true,
             groupShow:false,
             geoShow:false,
         }
@@ -34,42 +34,42 @@ new Vue({
         },
         changeShow(index){
             switch(index){
-                case 'home':{
-                    this.homeShow=true;
+                case 'video':{
+                    this.videoShow=true;
                     this.monitorShow=false;
-                    this.meetingShow=false;
+                    this.recipeShow=false;
                     this.groupShow = false;
                     this.geoShow = false;
                     break;
                 }
                 case 'monitor':{
-                    this.homeShow=false;
+                    this.videoShow=false;
                     this.monitorShow=true;
-                    this.meetingShow=false;
+                    this.recipeShow=false;
                     this.groupShow = false;
                     this.geoShow = false;
                     break;
                 }
-                case 'meeting':{
-                    this.homeShow=false;
+                case 'recipe':{
+                    this.videoShow=false;
                     this.monitorShow=false;
-                    this.meetingShow=true;
+                    this.recipeShow=true;
                     this.groupShow = false;
                     this.geoShow = false;
                     break;
                 }
                 case 'group':{
-                    this.homeShow=false;
+                    this.videoShow=false;
                     this.monitorShow=false;
-                    this.meetingShow=false;
+                    this.recipeShow=false;
                     this.groupShow = true;
                     this.geoShow = false;
                     break;
                 }
                 case 'geo':{
-                    this.homeShow=false;
+                    this.videoShow=false;
                     this.monitorShow=false;
-                    this.meetingShow=false;
+                    this.recipeShow=false;
                     this.groupShow = false;
                     this.geoShow = true;
                     break;

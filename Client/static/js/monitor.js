@@ -46,8 +46,8 @@ Vue.component('eg-monitor', {
   },
   template: `
 <div>
-  <div class="scroll-v">
-    <p>浏览器/屏幕宽高属性</p>
+  <div class="scroll-v" style="overflow-x:hidden">
+    <p><b>浏览器/屏幕宽高属性</b></p>
     <div v-for="k in dataWidthHeight">
       <el-card shadow="hover">
       {{k}}
@@ -59,19 +59,19 @@ Vue.component('eg-monitor', {
       {{k}}
       </el-card>
     </div>
-    <p>硬件属性</p>
+    <p><b>硬件属性</b></p>
     <div v-for="k in dataHardware">
       <el-card shadow="hover">
       {{k}}
       </el-card>
     </div>
-    <p>连接属性</p>
+    <p><b>连接属性</b></p>
     <div v-for="k in dataConnection">
       <el-card shadow="hover">
       {{k}}
       </el-card>
     </div>
-    <p>其他属性</p>
+    <p><b>其他属性</b></p>
     <div v-for="k in dataOther">
       <el-card shadow="hover">
       {{k}}

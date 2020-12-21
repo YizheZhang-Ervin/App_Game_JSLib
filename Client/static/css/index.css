@@ -50,7 +50,7 @@ main{
     display: flex;
 }
 
-#homeComponent{
+#videoComponent{
     color:gold
 }
 
@@ -103,12 +103,24 @@ main{
     height:70vh;
 }
 
+.h100{
+    height: 100%;
+}
+
 .border-left{
     border-left: 2px solid gold;
 }
 
 .padding-all{
     padding:2%;
+}
+
+.gold{
+    color:gold;
+}
+
+.dark{
+    background-color: #2b2b2b;
 }
 
 /* Media Query */
@@ -138,5 +150,10 @@ main{
 
 .el-divider__text{
     background-color:  #2b2b2b;
+    color:gold;
+}
+
+#recipeComponent .el-input__inner,#recipeComponent .el-button,#recipeComponent .el-card{
+    background-color: #2b2b2b;
     color:gold;
 }

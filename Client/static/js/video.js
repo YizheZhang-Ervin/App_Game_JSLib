@@ -1,4 +1,4 @@
-Vue.component('eg-home', {
+Vue.component('eg-video', {
     data: function () {
         return {
             comments: {
@@ -27,7 +27,7 @@ Vue.component('eg-home', {
         }
     },
     template: `
-<div id="homeComponent">
+<div id="videoComponent">
 <div class="scroll-v" style="overflow-x:hidden">
 
 <el-row style="background-color: #2b2b2b;">

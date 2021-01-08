@@ -1,5 +1,5 @@
 # IM
-Element+Vue+Express(nodejs)+Mysql+Webpack+Nginx
+Element+Vue+Express(nodejs)+Mysql
 
 ## Client
 entrance: index.html  

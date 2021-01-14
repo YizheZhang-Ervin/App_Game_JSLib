@@ -1,0 +1,184 @@
+<template>
+  <div id="container">
+    <aside>
+      <!-- left navigation bar -->
+      <el-menu
+        id="navbar001"
+        default-active="1"
+        background-color="#2b2b2b"
+        text-color="#fff"
+        active-text-color="gold"
+        :collapse="menuCollapse"
+      >
+        <el-menu-item index="1" @click="changeShow('video')">
+          <i class="el-icon-s-home"></i>
+          <span slot="title">Home</span>
+        </el-menu-item>
+        <el-submenu index="2" collapse="false">
+          <template slot="title">
+            <i class="el-icon-menu"></i>
+            <span>Menu</span>
+          </template>
+          <el-menu-item-group>
+            <template slot="title">Components</template>
+            <el-menu-item index="2-1" @click="changeShow('video')">
+              <i class="el-icon-video-camera-solid"></i>
+              <span slot="title">Video</span>
+            </el-menu-item>
+            <el-menu-item index="2-2" @click="changeShow('recipe')">
+              <i class="el-icon-food"></i>
+              <span slot="title">Recipe</span>
+            </el-menu-item>
+            <el-menu-item index="2-3" @click="changeShow('monitor')">
+              <i class="el-icon-monitor"></i>
+              <span slot="title">Monitor</span>
+            </el-menu-item>
+            <el-menu-item index="2-4" @click="changeShow('geo')">
+              <i class="el-icon-location-outline"></i>
+              <span slot="title">Geolocation</span>
+            </el-menu-item>
+            <el-menu-item index="2-5" @click="changeShow('game')">
+              <i class="el-icon-mouse"></i>
+              <span slot="title">Game</span>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-menu-item index="3" @click="changeShow('group')">
+          <i class="el-icon-user"></i>
+          <span slot="title">Group</span>
+        </el-menu-item>
+        <el-menu-item index="4" @click="changeMenuCollapse">
+          <i class="el-icon-s-fold"></i>
+          <span slot="title">Hide</span>
+        </el-menu-item>
+      </el-menu>
+    </aside>
+    <main>
+      <!-- components -->
+      <EGVideo v-show="videoShow"></EGVideo>
+      <EGRecipe v-show="recipeShow"></EGRecipe>
+      <EGMonitor v-show="monitorShow"></EGMonitor>
+      <EGGeo v-show="geoShow"></EGGeo>
+      <EGGroup v-show="groupShow"></EGGroup>
+      <EGGame v-show="gameShow" status="go"></EGGame>
+      <el-backtop></el-backtop>
+    </main>
+  </div>
+</template>
+
+<script>
+import EGVideo from "./video.vue";
+import EGRecipe from "./recipe.vue";
+import EGMonitor from "./monitor.vue";
+import EGGroup from "./group.vue";
+import EGGeo from "./geo.vue";
+import EGGame from "./game.vue";
+
+export default {
+  name: "EGHome",
+  components: {
+    EGVideo,
+    EGRecipe,
+    EGMonitor,
+    EGGroup,
+    EGGeo,
+    EGGame,
+  },
+  data: function () {
+    return {
+      menuCollapse: true,
+      videoShow: true,
+      monitorShow: false,
+      recipeShow: false,
+      groupShow: false,
+      geoShow: false,
+      gameShow: false,
+    };
+  },
+  mounted() {
+    setInterval(() => {
+      this.changeTitle();
+    }, 1000);
+  },
+  methods: {
+    changeTitle() {
+      let timer;
+      if (document.visibilityState != "visible") {
+        timer = setInterval(() => {
+          let date = new Date(Date.now());
+          document.title =
+            date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+          if (document.visibilityState == "visible") {
+            clearInterval(timer);
+            document.title = "EGGroup-IM";
+          }
+        }, 1000);
+      }
+    },
+    changeMenuCollapse() {
+      this.menuCollapse = !this.menuCollapse;
+    },
+    changeShow(index) {
+      switch (index) {
+        case "video": {
+          this.videoShow = true;
+          this.monitorShow = false;
+          this.recipeShow = false;
+          this.groupShow = false;
+          this.geoShow = false;
+          this.gameShow = false;
+          break;
+        }
+        case "monitor": {
+          this.videoShow = false;
+          this.monitorShow = true;
+          this.recipeShow = false;
+          this.groupShow = false;
+          this.geoShow = false;
+          this.gameShow = false;
+          break;
+        }
+        case "recipe": {
+          this.videoShow = false;
+          this.monitorShow = false;
+          this.recipeShow = true;
+          this.groupShow = false;
+          this.geoShow = false;
+          this.gameShow = false;
+          break;
+        }
+        case "group": {
+          this.videoShow = false;
+          this.monitorShow = false;
+          this.recipeShow = false;
+          this.groupShow = true;
+          this.geoShow = false;
+          this.gameShow = false;
+          break;
+        }
+        case "geo": {
+          this.videoShow = false;
+          this.monitorShow = false;
+          this.recipeShow = false;
+          this.groupShow = false;
+          this.geoShow = true;
+          this.gameShow = false;
+          break;
+        }
+        case "game": {
+          this.videoShow = false;
+          this.monitorShow = false;
+          this.recipeShow = false;
+          this.groupShow = false;
+          this.geoShow = false;
+          this.gameShow = true;
+          break;
+        }
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+</style>

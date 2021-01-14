@@ -1,9 +1,22 @@
-# IM
-Element+Vue+Express(nodejs)+Mysql
+# EGGroup V2
+Element+Vue CLI+Express(nodejs)+Mysql
 
 ## Client
-entrance: index.html  
+### VUE-CLI  
+npm install -g @vue/cli  
+npm update -g @vue/cli  
+vue create xxProject  
+vue --version  
+vue ui  
+npm install ant-design-vue  
+npm install less@2.7.2 less-loader  
+npm install vue-router  
   
+### VUE-CLI Start  
+npm install  
+npm run serve  
+http://localhost:8080/  
+
 ## Server
 ### Express Framework
 npm install express-generator  

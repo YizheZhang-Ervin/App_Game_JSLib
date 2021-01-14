@@ -26,7 +26,7 @@ function normalizePort(val) {
 app.use('/', usersRouter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '../Client')));
+app.use(express.static(path.join(__dirname, './public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(function (req, res, next) {

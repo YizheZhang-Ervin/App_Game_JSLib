@@ -28,4 +28,4 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'r
 ### Start
 npm install  
 npm start  
-http://localhost:3000/  
+http://127.0.0.1:3000/  

@@ -49,7 +49,7 @@
         </el-menu-item>
         <el-menu-item index="4" @click="changeMenuCollapse">
           <i class="el-icon-s-fold"></i>
-          <span slot="title">Hide</span>
+          <span slot="title">Hide (<span id="mouseX" class="bgtrans"></span> , <span id="mouseY" class="bgtrans"></span>)</span>
         </el-menu-item>
       </el-menu>
     </aside>
@@ -99,6 +99,7 @@ export default {
     setInterval(() => {
       this.changeTitle();
     }, 1000);
+    document.onmousemove = this.mouseMove;
   },
   methods: {
     changeTitle() {
@@ -175,6 +176,23 @@ export default {
           break;
         }
       }
+    },
+    mouseMove(ev) {
+      ev = ev || window.event;
+      var mousePos = this.mouseCoords(ev);
+      //获取当前的x,y坐标
+      document.getElementById("mouseX").innerText = mousePos.x;
+      document.getElementById("mouseY").innerText = mousePos.y;
+    },
+    mouseCoords(ev) {
+      //鼠标移动的位置
+      if (ev.pageX || ev.pageY) {
+        return { x: ev.pageX, y: ev.pageY };
+      }
+      return {
+        x: ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+        y: ev.clientY + document.body.scrollTop - document.body.clientTop,
+      };
     },
   },
 };

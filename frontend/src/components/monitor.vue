@@ -1,6 +1,20 @@
 <template>
 <div>
   <div class="scroll-v" style="overflow-x:hidden">
+    <p><b>摄像头</b></p>
+    <section>
+      <el-card shadow="hover">
+      <el-button type="primary" plain round title="start camera" @click="showMedia" >
+        <i class="el-icon-camera"></i> Start Camera
+      </el-button>
+      <el-button type="primary" plain round title="take photo" @click="showPhoto" >
+        <i class="el-icon-video-camera"></i> Take Photo
+      </el-button>
+      <br />
+      <video id="video" height="240px" autoplay="autoplay"></video>  
+      <canvas id="canvas" height="240px" width="240px"></canvas>
+      </el-card>
+    </section>
     <p><b>浏览器/屏幕宽高属性</b></p>
     <div v-for="k in dataWidthHeight" :key=k>
       <el-card shadow="hover">
@@ -36,6 +50,8 @@
 </template>
 
 <script>
+import {getMedia,takePhoto} from '../assets/js/webMedia.js';
+
 export default {
   name: "EGMonitor",
     data: function () {
@@ -83,6 +99,14 @@ export default {
       }
     }
   },
+  methods:{
+    showMedia(){
+      getMedia();
+    },
+    showPhoto(){
+      takePhoto();
+    }
+  }
 };
 </script>
 

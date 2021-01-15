@@ -1,6 +1,14 @@
 # EGGroup V2  
 Element+Vue CLI+Express(nodejs)+Mysql  
   
+## Function
+Video with drag/drop  
+Recipe with Keyword Search  
+Monitor with browser parameters & camera  
+Geolocation with location & map  
+Game with Canvas  
+Group  
+  
 ## Frontend  
 ### VUE-CLI  
 npm install -g @vue/cli  

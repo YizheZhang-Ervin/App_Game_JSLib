@@ -7,7 +7,7 @@
 
 <script>
 var echarts = require('echarts');
-require('../assets/js/china.js');
+import '../assets/js/china.js';
 
 export default {
   name: "EGGeo",

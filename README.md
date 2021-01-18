@@ -2,11 +2,12 @@
 Element+Vue CLI+Express(nodejs)+Mysql  
   
 ## Function
-Video with drag/drop  
+Video Player with drag/drop  
 Recipe with Keyword Search  
 Monitor with browser parameters & camera  
 Geolocation with location & map  
 Game with Canvas  
+Excel with IO/New/ComputeExpression  
 Group  
   
 ## Frontend  

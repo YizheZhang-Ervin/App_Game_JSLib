@@ -41,6 +41,10 @@
               <i class="el-icon-mouse"></i>
               <span slot="title">Game</span>
             </el-menu-item>
+            <el-menu-item index="2-6" @click="changeShow('excel')">
+              <i class="el-icon-s-grid"></i>
+              <span slot="title">Excel</span>
+            </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="3" @click="changeShow('group')">
@@ -49,7 +53,7 @@
         </el-menu-item>
         <el-menu-item index="4" @click="changeMenuCollapse">
           <i class="el-icon-s-fold"></i>
-          <span slot="title">Hide (<span id="mouseX" class="bgtrans"></span> , <span id="mouseY" class="bgtrans"></span>)</span>
+          <span slot="title">Hide (<span class="bgtrans" v-text="mouseX"></span> , <span v-text="mouseY" class="bgtrans"></span>)</span>
         </el-menu-item>
       </el-menu>
     </aside>
@@ -61,6 +65,7 @@
       <EGGeo v-show="geoShow"></EGGeo>
       <EGGroup v-show="groupShow"></EGGroup>
       <EGGame v-show="gameShow" status="go"></EGGame>
+      <EGExcel v-show="excelShow"></EGExcel>
       <el-backtop></el-backtop>
     </main>
   </div>
@@ -73,6 +78,7 @@ import EGMonitor from "./monitor.vue";
 import EGGroup from "./group.vue";
 import EGGeo from "./geo.vue";
 import EGGame from "./game.vue";
+import EGExcel from "./excel.vue";
 
 export default {
   name: "EGHome",
@@ -83,6 +89,7 @@ export default {
     EGGroup,
     EGGeo,
     EGGame,
+    EGExcel
   },
   data: function () {
     return {
@@ -93,6 +100,9 @@ export default {
       groupShow: false,
       geoShow: false,
       gameShow: false,
+      excelShow:false,
+      mouseX:0,
+      mouseY:0
     };
   },
   mounted() {
@@ -107,8 +117,7 @@ export default {
       if (document.visibilityState != "visible") {
         timer = setInterval(() => {
           let date = new Date(Date.now());
-          document.title =
-            date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+          document.title = "EGGroup-IM "+ date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
           if (document.visibilityState == "visible") {
             clearInterval(timer);
             document.title = "EGGroup-IM";
@@ -128,6 +137,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
+          this.excelShow = false;
           break;
         }
         case "monitor": {
@@ -137,6 +147,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
+          this.excelShow = false;
           break;
         }
         case "recipe": {
@@ -146,6 +157,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
+          this.excelShow = false;
           break;
         }
         case "group": {
@@ -155,6 +167,7 @@ export default {
           this.groupShow = true;
           this.geoShow = false;
           this.gameShow = false;
+          this.excelShow = false;
           break;
         }
         case "geo": {
@@ -164,6 +177,7 @@ export default {
           this.groupShow = false;
           this.geoShow = true;
           this.gameShow = false;
+          this.excelShow = false;
           break;
         }
         case "game": {
@@ -173,6 +187,17 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = true;
+          this.excelShow = false;
+          break;
+        }
+        case "excel": {
+          this.videoShow = false;
+          this.monitorShow = false;
+          this.recipeShow = false;
+          this.groupShow = false;
+          this.geoShow = false;
+          this.gameShow = false;
+          this.excelShow = true;
           break;
         }
       }
@@ -181,8 +206,8 @@ export default {
       ev = ev || window.event;
       var mousePos = this.mouseCoords(ev);
       //获取当前的x,y坐标
-      document.getElementById("mouseX").innerText = mousePos.x;
-      document.getElementById("mouseY").innerText = mousePos.y;
+      this.mouseX = mousePos.x;
+      this.mouseY = mousePos.y;
     },
     mouseCoords(ev) {
       //鼠标移动的位置
@@ -199,4 +224,7 @@ export default {
 </script>
 
 <style scoped>
+main{
+  overflow: hidden;
+}
 </style>

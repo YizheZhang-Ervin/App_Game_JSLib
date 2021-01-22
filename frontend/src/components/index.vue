@@ -10,17 +10,19 @@
         active-text-color="gold"
         :collapse="menuCollapse"
       >
+        <!-- home -->
         <el-menu-item index="1" @click="changeShow('video')">
           <i class="el-icon-s-home"></i>
           <span slot="title">Home</span>
         </el-menu-item>
+        <!-- tools -->
         <el-submenu index="2" collapse="false">
           <template slot="title">
             <i class="el-icon-menu"></i>
-            <span>Menu</span>
+            <span>Tools</span>
           </template>
           <el-menu-item-group>
-            <template slot="title">Components</template>
+            <template slot="title">Tools</template>
             <el-menu-item index="2-1" @click="changeShow('video')">
               <i class="el-icon-video-camera-solid"></i>
               <span slot="title">Video</span>
@@ -29,31 +31,50 @@
               <i class="el-icon-food"></i>
               <span slot="title">Recipe</span>
             </el-menu-item>
-            <el-menu-item index="2-3" @click="changeShow('monitor')">
-              <i class="el-icon-monitor"></i>
-              <span slot="title">Monitor</span>
-            </el-menu-item>
-            <el-menu-item index="2-4" @click="changeShow('geo')">
-              <i class="el-icon-location-outline"></i>
-              <span slot="title">Geolocation</span>
-            </el-menu-item>
-            <el-menu-item index="2-5" @click="changeShow('game')">
-              <i class="el-icon-mouse"></i>
-              <span slot="title">Game</span>
-            </el-menu-item>
-            <el-menu-item index="2-6" @click="changeShow('excel')">
+            <el-menu-item index="2-3" @click="changeShow('excel')">
               <i class="el-icon-s-grid"></i>
               <span slot="title">Excel</span>
             </el-menu-item>
+            <el-menu-item index="2-4" @click="changeShow('monitor')">
+              <i class="el-icon-monitor"></i>
+              <span slot="title">Monitor</span>
+            </el-menu-item>
+            <el-menu-item index="2-5" @click="changeShow('geo')">
+              <i class="el-icon-location-outline"></i>
+              <span slot="title">Geolocation</span>
+            </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="3" @click="changeShow('group')">
+        <!-- games -->
+        <el-submenu index="3" collapse="false">
+          <template slot="title">
+            <i class="el-icon-cpu"></i>
+            <span>Games</span>
+          </template>
+          <el-menu-item-group>
+            <template slot="title">Games</template>
+            <el-menu-item index="3-1" @click="changeShow('game')">
+              <i class="el-icon-mouse"></i>
+              <span slot="title">Game Canvas</span>
+            </el-menu-item>
+            <el-menu-item index="3-2" @click="changeShow('game2')">
+              <i class="el-icon-mouse"></i>
+              <span slot="title">Game Unity</span>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <!-- group -->
+        <el-menu-item index="4" @click="changeShow('group')">
           <i class="el-icon-user"></i>
           <span slot="title">Group</span>
         </el-menu-item>
-        <el-menu-item index="4" @click="changeMenuCollapse">
+        <!-- collapse -->
+        <el-menu-item index="5" @click="changeMenuCollapse">
           <i class="el-icon-s-fold"></i>
-          <span slot="title">Hide (<span class="bgtrans" v-text="mouseX"></span> , <span v-text="mouseY" class="bgtrans"></span>)</span>
+          <span slot="title"
+            >Hide (<span class="bgtrans" v-text="mouseX"></span> ,
+            <span v-text="mouseY" class="bgtrans"></span>)</span
+          >
         </el-menu-item>
       </el-menu>
     </aside>
@@ -89,7 +110,7 @@ export default {
     EGGroup,
     EGGeo,
     EGGame,
-    EGExcel
+    EGExcel,
   },
   data: function () {
     return {
@@ -100,9 +121,9 @@ export default {
       groupShow: false,
       geoShow: false,
       gameShow: false,
-      excelShow:false,
-      mouseX:0,
-      mouseY:0
+      excelShow: false,
+      mouseX: 0,
+      mouseY: 0,
     };
   },
   mounted() {
@@ -117,7 +138,13 @@ export default {
       if (document.visibilityState != "visible") {
         timer = setInterval(() => {
           let date = new Date(Date.now());
-          document.title = "EGGroup-IM "+ date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+          document.title =
+            "EGGroup-IM " +
+            date.getHours() +
+            ":" +
+            date.getMinutes() +
+            ":" +
+            date.getSeconds();
           if (document.visibilityState == "visible") {
             clearInterval(timer);
             document.title = "EGGroup-IM";
@@ -224,7 +251,7 @@ export default {
 </script>
 
 <style scoped>
-main{
+main {
   overflow: hidden;
 }
 </style>

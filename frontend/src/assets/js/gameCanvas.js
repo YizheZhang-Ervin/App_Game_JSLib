@@ -4,11 +4,13 @@ function start() {
     arr.forEach((val)=>{
         adjustButton(val);
     })
+    // 调整canvas大小
+    adjustCanvasSize();
     // 调速
     let speed = Math.round(Math.random() * 3+1);
     adjustSpeedBtn(speed);
     // 声音
-    soundAppear();
+    // soundAppear();
     // 加载图片+动起来
     bgAppear();
     // 主角出场+动起来
@@ -18,6 +20,23 @@ function start() {
     // 子弹出现+飞起来
     bulletAppear(hero, enemyArray);
 }
+function adjustCanvasSize(){
+    let bgCanvas = document.getElementById("bgCanvas"),
+        heroCanvas = document.getElementById("heroCanvas"),
+        bulletCanvas = document.getElementById("bulletCanvas"),
+        enemyCanvas = document.getElementById("enemyCanvas");
+    let height = 0.99 * (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight),
+        width = 1 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
+    bgCanvas.width = width;
+    bgCanvas.height = height;
+    heroCanvas.width = width;
+    heroCanvas.height = height;
+    bulletCanvas.width = width;
+    bulletCanvas.height = height;
+    enemyCanvas.width = width;
+    enemyCanvas.height = height;
+}
+
 function adjustSpeedBtn(speed){
     let accBtn = document.getElementById("accBtn");
     accBtn.value = speed;
@@ -47,15 +66,15 @@ function adjustButton(direction){
         btn.style.bottom = "64px";
     }
 }
-function soundAppear() {
-    // 声音
-    // let bgsURL = require("")
-    // let bgSound = new Audio(bgsURL);
-    // bgSound.loop = true;
-    // bgSound.play();
-}
+// function soundAppear() {
+//     声音
+//     let bgsURL = require("")
+//     let bgSound = new Audio(bgsURL);
+//     bgSound.loop = true;
+//     bgSound.play();
+// }
 function bgAppear() {
-    let bgCanvas = document.getElementById("canvas");
+    let bgCanvas = document.getElementById("bgCanvas");
     let context = bgCanvas.getContext("2d");
     let width = bgCanvas.width;
     let height = bgCanvas.height;

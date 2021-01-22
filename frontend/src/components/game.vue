@@ -6,12 +6,12 @@
     onselectstart="return false"
     @click="play()"
   >
-    <h1 class="center">点击任意位置开始游戏</h1>
-    <canvas id="canvas" :height="browser.H" :width="browser.W"></canvas>
-    <canvas id="heroCanvas" :height="browser.H" :width="browser.W"></canvas>
-    <canvas id="bulletCanvas" :height="browser.H" :width="browser.W"></canvas>
-    <canvas id="enemyCanvas" :height="browser.H" :width="browser.W"></canvas>
+    <h1 class="center vh100" v-show="!btnShow">点击任意位置开始游戏</h1>
     <div oncontextmenu="return false" class="noselect" v-show="btnShow">
+      <canvas id="bgCanvas"></canvas>
+      <canvas id="heroCanvas"></canvas>
+      <canvas id="bulletCanvas"></canvas>
+      <canvas id="enemyCanvas"></canvas>
       <input id="leftBtn" type="button" :style="btnBg.leftBtn" />
       <input id="rightBtn" type="button" :style="btnBg.rightBtn" />
       <input id="upBtn" type="button" :style="btnBg.upBtn" />
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import start from "../assets/js/game1lib.js";
+import start from "../assets/js/gameCanvas.js";
 export default {
   name: "EGGame",
   props: {
@@ -33,18 +33,6 @@ export default {
   },
   data() {
     return {
-      browser: {
-        H:
-          0.99 *
-          (window.innerHeight ||
-            document.documentElement.clientHeight ||
-            document.body.clientHeight),
-        W:
-          1 *
-          (window.innerWidth ||
-            document.documentElement.clientWidth ||
-            document.body.clientWidth),
-      },
       btnBg: {
         leftBtn: {
           backgroundImage: "url(" + require("../assets/game/left.png") + ")",
@@ -70,9 +58,9 @@ export default {
   methods: {
     play() {
       if (!this.playStatus) {
-        start();
         this.btnShow = true;
         this.playStatus = true;
+        start();
       }
     },
   },
@@ -86,7 +74,7 @@ export default {
 canvas {
   box-shadow: 0 0 10px #333;
 }
-#canvas,
+#bgCanvas,
 #heroCanvas,
 #bulletCanvas,
 #enemyCanvas {

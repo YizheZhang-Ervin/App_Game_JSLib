@@ -109,12 +109,14 @@ export default {
                 contact: "<a href='https://ervinzhang.pythonanywhere.com/' target='_new'>个人网站</a>",
                 linkedin: "https://www.linkedin.com/in/yizhe-zhang/",
                 title: "CKO",
-                exp1: "全栈开发, 前端开发",
-                exp2: "<p>房产网 (Angular+Express+MongoDB)\
-                </p><p>博客网 (React+Django+Sqlite)</p>\
-                <p>游戏网 (Vue+Express+Mysql)</p>",
+                exp1: "前端/全栈开发, 游戏开发, FinTech",
+                exp2: "<p>房产网 (Angular+Express+MongoDB+Ngzorro)\
+                </p><p>博客网 (React+Django+Sqlite+Antd+Echarts)</p>\
+                <p>游戏网 (Vue+Express+Mysql+ElementUI+Echarts)</p>\
+                <p>金融算法 (Vue+Django+Sqlite+ElementUI)</p>\
+                <p>共享单车 (Django+Sqlite+Echarts)</p>",
                 exp3: "NEU, UCLA, NTU",
-                exp4: "Python, JavaScript/Node.js, SQL",
+                exp4: "Python, JavaScript",
                 exp5: "汉语, 英语"
             }, {
                 index: '2',

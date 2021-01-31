@@ -57,10 +57,6 @@
               <i class="el-icon-mouse"></i>
               <span slot="title">Game Canvas</span>
             </el-menu-item>
-            <el-menu-item index="3-2" @click="changeShow('game2')">
-              <i class="el-icon-mouse"></i>
-              <span slot="title">Game Unity</span>
-            </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <!-- group -->

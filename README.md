@@ -1,5 +1,5 @@
 # EGGroup V2  
-ElementUI + Vue CLI + Express(nodejs) + Mysql + Canvas + Unity3D    
+ElementUI + Vue CLI + Express(nodejs) + Mysql + Echarts + Canvas + Unity3D    
   
 ## Function
 Video Player with drag/drop  

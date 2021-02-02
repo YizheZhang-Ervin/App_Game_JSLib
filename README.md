@@ -1,14 +1,14 @@
 # EGGroup V2  
-Element+Vue CLI+Express(nodejs)+Mysql  
+ElementUI + Vue CLI + Express(nodejs) + Mysql + Canvas + Unity3D    
   
 ## Function
 Video Player with drag/drop  
 Recipe with Keyword Search  
 Monitor with browser parameters & camera  
 Geolocation with location & map  
-Game with Canvas  
-Excel with IO/New/ComputeExpression  
+Game with Canvas    
 Group  
+Game Engine: Unity3D  
   
 ## Frontend  
 ### VUE-CLI  
@@ -17,7 +17,7 @@ npm update -g @vue/cli
 vue create xxProject  
 vue --version  
 vue ui  
-npm install ant-design-vue  
+npm install ant-design-vue or npm install element-ui 
 npm install less@2.7.2 less-loader  
 npm install vue-router  
   
@@ -28,6 +28,7 @@ http://localhost:8080/
   
 ## Backend    
 ### Express Framework  
+npm install ejs  
 npm install express-generator  
 express -v  
 express xxProject -e  
@@ -38,3 +39,10 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'r
 npm install  
 npm start  
 http://127.0.0.1:3000/  
+
+## If Update FrontEnd
+backend: npm run build
+move temp_public files to public  
+  
+## If Update Game Unity
+move resources to public/game1 folder  

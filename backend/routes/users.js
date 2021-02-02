@@ -9,5 +9,8 @@ router.get('/api/users', function(req, res, next) {
         console.log(rows);
     });
 });
+router.get('/game1', function(req, res, next) {
+    res.render("game.html");
+});
 
 module.exports = router;

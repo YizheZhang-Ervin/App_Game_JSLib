@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const usersRouter = require('./routes/users');
+const ejs = require('ejs');
 
 const app = express();
 const port = normalizePort(process.env.PORT || '3000');
@@ -21,6 +22,12 @@ function normalizePort(val) {
     }
     return false;
 }
+
+// templates
+app.set("views", __dirname + "/public");
+app.set('view engine', 'ejs')
+app.engine('html',ejs.__express)
+app.set('view engine','html')
 
 // middlewares
 app.use('/', usersRouter);

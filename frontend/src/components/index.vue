@@ -31,15 +31,11 @@
               <i class="el-icon-food"></i>
               <span slot="title">Recipe</span>
             </el-menu-item>
-            <el-menu-item index="2-3" @click="changeShow('excel')">
-              <i class="el-icon-s-grid"></i>
-              <span slot="title">Excel</span>
-            </el-menu-item>
-            <el-menu-item index="2-4" @click="changeShow('monitor')">
+            <el-menu-item index="2-3" @click="changeShow('monitor')">
               <i class="el-icon-monitor"></i>
               <span slot="title">Monitor</span>
             </el-menu-item>
-            <el-menu-item index="2-5" @click="changeShow('geo')">
+            <el-menu-item index="2-4" @click="changeShow('geo')">
               <i class="el-icon-location-outline"></i>
               <span slot="title">Geolocation</span>
             </el-menu-item>
@@ -56,6 +52,12 @@
             <el-menu-item index="3-1" @click="changeShow('game')">
               <i class="el-icon-mouse"></i>
               <span slot="title">Game Canvas</span>
+            </el-menu-item>
+            <el-menu-item index="3-2" @click="changeShow('game2')">
+              <i class="el-icon-mouse"></i>
+              <span slot="title">
+                <a href="/game1" target="iframe001">Game Unity</a>
+              </span>
             </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -82,7 +84,7 @@
       <EGGeo v-show="geoShow"></EGGeo>
       <EGGroup v-show="groupShow"></EGGroup>
       <EGGame v-show="gameShow" status="go"></EGGame>
-      <EGExcel v-show="excelShow"></EGExcel>
+      <iframe v-show="game2Show" id="iframe001" class="iframe" name="iframe001"></iframe>
       <el-backtop></el-backtop>
     </main>
   </div>
@@ -95,7 +97,6 @@ import EGMonitor from "./monitor.vue";
 import EGGroup from "./group.vue";
 import EGGeo from "./geo.vue";
 import EGGame from "./game.vue";
-import EGExcel from "./excel.vue";
 
 export default {
   name: "EGHome",
@@ -105,8 +106,7 @@ export default {
     EGMonitor,
     EGGroup,
     EGGeo,
-    EGGame,
-    EGExcel,
+    EGGame
   },
   data: function () {
     return {
@@ -117,7 +117,7 @@ export default {
       groupShow: false,
       geoShow: false,
       gameShow: false,
-      excelShow: false,
+      game2Show: false,
       mouseX: 0,
       mouseY: 0,
     };
@@ -160,7 +160,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
         case "monitor": {
@@ -170,7 +170,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
         case "recipe": {
@@ -180,7 +180,7 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
         case "group": {
@@ -190,7 +190,7 @@ export default {
           this.groupShow = true;
           this.geoShow = false;
           this.gameShow = false;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
         case "geo": {
@@ -200,7 +200,7 @@ export default {
           this.groupShow = false;
           this.geoShow = true;
           this.gameShow = false;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
         case "game": {
@@ -210,17 +210,17 @@ export default {
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = true;
-          this.excelShow = false;
+          this.game2Show = false;
           break;
         }
-        case "excel": {
+        case "game2": {
           this.videoShow = false;
           this.monitorShow = false;
           this.recipeShow = false;
           this.groupShow = false;
           this.geoShow = false;
           this.gameShow = false;
-          this.excelShow = true;
+          this.game2Show = true;
           break;
         }
       }
@@ -249,5 +249,15 @@ export default {
 <style scoped>
 main {
   overflow: hidden;
+}
+.iframe {
+  height: 100vh;
+  max-width: 96vw;
+  width:95vw;
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: white;
 }
 </style>

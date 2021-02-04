@@ -1,13 +1,8 @@
 # EGGroup V2  
-ElementUI + Vue CLI + Express(nodejs) + Mysql + Echarts + Canvas + Unity3D    
+ElementUI + Vue + Express(nodejs) + Mysql + Canvas + Unity3D    
   
 ## Function
-Video Player with drag/drop  
-Recipe with Keyword Search  
-Monitor with browser parameters & camera  
-Geolocation with location & map  
 Game with Canvas    
-Group  
 Game Engine: Unity3D  
   
 ## Frontend  
@@ -37,12 +32,9 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'r
   
 ### Start
 npm install  
-npm start  
+npm serve  
 http://127.0.0.1:3000/  
-
-## If Update FrontEnd
-backend: npm run build
-move temp_public files to public  
   
 ## If Update Game Unity
-move resources to public/game1 folder  
+add resources to frontend/static/gamexx  
+  

@@ -8,9 +8,14 @@ html,#app{
     overflow-x: hidden;
 }
 
+#app{
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+}
+
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .menu{
@@ -23,6 +28,36 @@ a {
     width:100vw;
 }
 
+/* homepage */
+.homepage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100vh;
+    width:100vw;
+    color:gold;
+    background-color: rgba(0,0,0,0.35);
+}
+
+.bigfont{
+    font-size: 5em;
+}
+
+.btn{
+    width:15vw;
+    background-color: rgba(0,0,0,0.5);
+    color:gold;
+    font-size: 1.5em;
+}
+
+.btn a{
+    color: gold;
+}
+
+.divider{
+    width:60vw;
+}
 /* canvas game */
 canvas {
 box-shadow: 0 0 10px #333;
@@ -86,4 +121,8 @@ background-size: cover;
 #downBtn{
 background-image: url(../canvasGame/down.png);
 background-size: cover;
+}
+
+.el-submenu__title,.el-menu-item,.is-active{
+    background-color: transparent!important;
 }

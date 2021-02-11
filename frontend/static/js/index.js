@@ -2,8 +2,9 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
+            homeShow:true,
             cgShow: false,
-            unityShow: true,
+            unityShow: false,
             btnShow: false,
             playStatus: false,
         }
@@ -18,10 +19,16 @@ var app = new Vue({
             if (key == "canvas") {
                 this.cgShow = true;
                 this.unityShow = false;
+                this.homeShow = false;
                 document.getElementById("iframe001").src="";
+            }else if(key=="home"){
+                this.cgShow = false;
+                this.unityShow = false;
+                this.homeShow = true;
             } else {
                 this.cgShow = false;
                 this.unityShow = true;
+                this.homeShow = false;
             }
         },
         checkVisibility: function () {

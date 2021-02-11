@@ -24,7 +24,7 @@ function normalizePort(val) {
 }
 
 // templates
-app.set("views", __dirname + "/frontend");
+app.set("views",path.join(__dirname,"../","/frontend"));
 app.set('view engine', 'ejs')
 app.engine('html',ejs.__express)
 app.set('view engine','html')
@@ -33,7 +33,7 @@ app.set('view engine','html')
 app.use('/', usersRouter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, '/frontend')));
+app.use(express.static(path.join(__dirname,"../", '/frontend')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(function (req, res, next) {

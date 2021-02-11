@@ -13,12 +13,12 @@
     <body>
         <div id="app">
             <!-- 菜单 -->
-            <el-menu default-active="1" mode="horizontal" @select="changeShow" class="menu"
-            background-color="#545c64"
+            <el-menu default-active="home" mode="horizontal" @select="changeShow" class="menu"
+            background-color="rgba(0,0,0,0.5)"
             text-color="#fff"
-            active-text-color="#ffd04b"
+            active-text-color="gold"
             >
-                <el-menu-item index="1">Home</el-menu-item>
+                <el-menu-item index="home">Home</el-menu-item>
                 <el-submenu index="2">
                     <template slot="title">Games</template>
                     <el-menu-item index="canvas">Canvas</el-menu-item>
@@ -48,6 +48,15 @@
                     </el-submenu>
                 </el-submenu>
             </el-menu>
+            <!-- homepage -->
+            <section v-show="homeShow" class="homepage">
+                <div class="bigfont">E-Game Group V2.0</div>
+                <el-divider class="divider"></el-divider>
+                <div>
+                    <el-button round class="btn">Canvas</el-button>
+                    <el-button round class="btn"><a href="/game1" target="iframe001">Unity</a></el-button>
+                </div>
+            </section>
             <!-- canvas游戏 -->
             <div v-if="cgShow" ondragstart="return false" oncontextmenu="return false"
                 onselectstart="return false" @click="play()">

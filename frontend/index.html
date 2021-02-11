@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FinTech Algs</title>
+        <title>EGGroup</title>
         <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <link rel="stylesheet" type="text/css" href="./static/css/index.css">
         <link rel="icon" href="./static/img/favicon.ico">
@@ -14,13 +14,13 @@
         <div id="app">
             <!-- 菜单 -->
             <el-menu default-active="home" mode="horizontal" @select="changeShow" class="menu"
-            background-color="rgba(0,0,0,0.5)"
-            text-color="#fff"
-            active-text-color="gold"
+            background-color="rgba(0,0,0,0)"
+            text-color="#000"
+            active-text-color="#fff"
             >
-                <el-menu-item index="home">Home</el-menu-item>
+                <el-menu-item index="home">HOME</el-menu-item>
                 <el-submenu index="2">
-                    <template slot="title">Games</template>
+                    <template slot="title">GAMES</template>
                     <el-menu-item index="canvas">Canvas</el-menu-item>
                     <el-submenu index="unity">
                         <template slot="title">Unity</template>
@@ -50,11 +50,12 @@
             </el-menu>
             <!-- homepage -->
             <section v-show="homeShow" class="homepage">
-                <div class="bigfont">EGame Group</div>
+                <p class="middlefont">EGAME GROUP V2</p>
+                <div class="bigfont">WebGL 3D Games System</div>
                 <el-divider class="divider"></el-divider>
                 <div>
-                    <el-button round class="btn">Canvas</el-button>
-                    <el-button round class="btn"><a href="/game1" target="iframe001">Unity</a></el-button>
+                    <el-button class="btn2">Canvas</el-button>
+                    <el-button class="btn"><a href="/game1" target="iframe001">Unity</a></el-button>
                 </div>
             </section>
             <!-- canvas游戏 -->

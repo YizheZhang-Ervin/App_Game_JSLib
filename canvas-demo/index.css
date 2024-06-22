@@ -1,0 +1,67 @@
+/* canvas game */
+canvas {
+    box-shadow: 0 0 10px #333;
+}
+
+#bgCanvas,
+#heroCanvas,
+#bulletCanvas,
+#enemyCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#accBtn {
+    width: 192px;
+    height: 64px;
+    position: absolute;
+    top: 0px;
+    left: 64px;
+    z-index: 10;
+    color: white;
+    background-color: transparent;
+}
+
+#accLbl {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    color: white;
+    background-color: transparent;
+    line-height: 64px;
+    text-align: center;
+}
+
+/* buttons */
+#leftBtn {
+    background-image: url(./canvasGame/left.png);
+    background-size: cover;
+}
+
+#rightBtn {
+    background-image: url(./canvasGame/right.png);
+    background-size: cover;
+}
+
+#upBtn {
+    background-image: url(./canvasGame/up.png);
+    background-size: cover;
+}
+
+#downBtn {
+    background-image: url(./canvasGame/down.png);
+    background-size: cover;
+}

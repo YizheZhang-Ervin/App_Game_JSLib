@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EGGroup</title>
+        <link rel="stylesheet" href="./static/lib/element-ui.css">
+        <link rel="stylesheet" type="text/css" href="./static/css/index.css">
+        <link rel="icon" href="./static/img/favicon.ico">
+    </head>
+
+    <body>
+        <div id="app">
+            <el-menu :default-active="1" mode="horizontal" background-color="#545c64" text-color="#fff"
+                active-text-color="#ffd04b" @select="changeShow">
+                <el-menu-item index="home">Home</el-menu-item>
+            </el-menu>
+            <!-- homepage -->
+            <section v-show="homeShow" class="homepage">
+                <p class="middlefont">EGAME GROUP V2</p>
+                <div class="bigfont">WebGL 3D Games System</div>
+                <el-divider class="divider"></el-divider>
+                <div>
+                    <el-button class="btn2" @click="changeShow('webgl')"><a href="/game1"
+                            target="iframe001">Unity</a></el-button>
+                    <el-button class="btn">More</el-button>
+                </div>
+            </section>
+            <!-- unity游戏 -->
+            <iframe v-show="unityShow" id="iframe001" class="iframe" name="iframe001" src="/game1"></iframe>
+        </div>
+        <script src="./static/lib/vue.min.js"></script>
+        <script src="./static/lib/axios.min.js"></script>
+        <script src="./static/lib/element-ui.js"></script>
+        <script src="./static/js/index.js" async="async"></script>
+    </body>
+
+</html>

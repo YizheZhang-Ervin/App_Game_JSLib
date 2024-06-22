@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="./index.css">
+    </head>
+
+    <body>
+        <div ondragstart="return false" oncontextmenu="return false" onselectstart="return false">
+            <div oncontextmenu="return false" class="noselect">
+                <canvas id="bgCanvas"></canvas>
+                <canvas id="heroCanvas"></canvas>
+                <canvas id="bulletCanvas"></canvas>
+                <canvas id="enemyCanvas"></canvas>
+                <input id="leftBtn" type="button" />
+                <input id="rightBtn" type="button" />
+                <input id="upBtn" type="button" />
+                <input id="downBtn" type="button" />
+                <label id="accLbl">调速:</label>
+                <input id="accBtn" type="button" value="点击加速(不可反悔)" />
+            </div>
+        </div>
+        <script src="./index.js" async="async"></script>
+        <script src="./canvasGameLib.js"></script>
+    </body>
+
+</html>

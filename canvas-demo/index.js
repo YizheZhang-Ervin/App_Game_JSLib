@@ -1,0 +1,5 @@
+let play = () => {
+    start();
+}
+
+play()

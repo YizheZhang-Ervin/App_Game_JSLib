@@ -12,7 +12,7 @@ npm update -g @vue/cli
 vue create xxProject  
 vue --version  
 vue ui  
-npm install ant-design-vue or npm install element-ui 
+npm install ant-design-vue 或 npm install element-ui 
 npm install less@2.7.2 less-loader  
 npm install vue-router  
   
